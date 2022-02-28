@@ -19,11 +19,11 @@ return new class extends Migration
             $table->text('description');
             $table->integer('prix');
             $table->string('slug')->nullable();
-            $table->timestamp('released_at');
             $table->boolean('coeur');
             $table->text('couleurs')->nullable();
             $table->string('cover')->nullable();
             $table->integer('promo')->nullable();
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

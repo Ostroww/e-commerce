@@ -38,7 +38,9 @@ Route::get('/admin.html', [AdminController::class, 'index']);
 
 Route::get('/admin/products.html', [AdminProductController::class, 'index']);
 
-Route::get('/admin/product/creer.html', [ProductController::class, 'create']);
+Route::get('/admin/product/creer.html', [AdminProductController::class, 'create']);
+
+Route::post('/admin/product/creer.html', [AdminProductController::class, 'store']);
 
 Route::get('/admin/product/{product}/edit.html', [ContactController::class, 'edit']);
 

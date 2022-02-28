@@ -4,7 +4,7 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                         <h1 class="h2">Produits</h1>
-                        <a class="btn btn-primary" href="">Créer un produit</a>
+                        <a class="btn btn-primary" href="/admin/product/creer.html">Créer un produit</a>
                     </div>
 
                     <div>
@@ -19,30 +19,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($products as $product)
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">{{ $product->id }}</th>
                                     <td>
-                                        <img width="80" src="https://dummyimage.com/600x400/55595c/fff" alt="">
+                                        <img width="80" src="{{ $product->cover }}" alt="">
                                     </td>
-                                    <td>Produit</td>
-                                    <td>10,99 €</td>
+                                    <td>{{ $product->nom }}</td>
+                                    <td>{{ $product->prix }} €</td>
                                     <td>
                                         <a class="btn btn-primary">Modifier</a>
                                         <a class="btn btn-danger">Supprimer</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>
-                                        <img width="80" src="https://dummyimage.com/600x400/55595c/fff" alt="">
-                                    </td>
-                                    <td>Produit</td>
-                                    <td>10,99 €</td>
-                                    <td>
-                                        <a class="btn btn-primary">Modifier</a>
-                                        <a class="btn btn-danger">Supprimer</a>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

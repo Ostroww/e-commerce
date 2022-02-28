@@ -88,7 +88,7 @@
                     <div class="card">
                         <img class="card-img-top" src="{{ $product->cover }}" alt="Card image cap">
                         <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">{{ $product->nom }}</a></h4>
+                            <h4 class="card-title"><a href="product/{{ $product->id }}.html" title="View Product">{{ $product->nom }}</a></h4>
                             <p class="card-text">{{ $product->description}}</p>
                             <div class="row">
                                 <div class="col">

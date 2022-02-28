@@ -21,6 +21,7 @@ class HomeController extends Controller
         $coeur = Product::inRandomOrder()->select('cover')->where('coeur','1')->first();
 
         return view('base', [
+            'lasts' => Product::latest('created_at')->paginate(4),
             'products' => $products, 
             'products_2' => $products_2,
             'products_3' => $products_3,

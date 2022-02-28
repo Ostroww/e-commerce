@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -11,8 +13,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Product $products)
     {
-        return view('base');
+        $products = Product::inRandomOrder()->first();
+        $products_2 = Product::inRandomOrder()->first();
+        $products_3 = Product::inRandomOrder()->first();
+        $coeur = Product::inRandomOrder()->select('cover')->where('coeur','1')->first();
+
+        return view('base', [
+            'products' => $products, 
+            'products_2' => $products_2,
+            'products_3' => $products_3,
+            'coeur' => $coeur,
+        ]);
+
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">Ecommerce</h1>
+        <h1 class="jumbotron-heading">Commerce</h1>
         <p class="lead text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum delectus ad quae cumque voluptates dolorum, neque eveniet, placeat obcaecati magnam vel fugit nulla autem, mollitia consequuntur praesentium sit? Veniam, facere.</p>
     </div>
 </section>
@@ -17,19 +17,17 @@
                     <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
                     <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
                 </ol>
-                @foreach ($products as $product)
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/55595c/fff" alt="First slide">
+                        <img class="d-block w-100" src="{{ $products->cover }}" alt="First slide" width="855px" height="365px">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/a30ca3/fff" alt="Second slide">
+                        <img class="d-block w-100" src="{{ $products_2->cover }}" alt="Second slide" width="855px" height="365px">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/1443ff/fff" alt="Third slide">
+                        <img class="d-block w-100" src="{{ $products_3->cover }}" alt="Third slide" width="855px" height="365px">
                     </div>
                 </div>
-                @endforeach
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
@@ -45,7 +43,7 @@
                 <div class="card-header bg-success text-white text-uppercase">
                     <i class="fa fa-heart"></i> Coup de coeur
                 </div>
-                <img class="img-fluid border-0" src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap">
+                <img class="img-fluid border-0" src="{{ $coeur->cover }}" alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-title text-center"><a href="product.html" title="View Product">Produit</a></h4>
                     <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>

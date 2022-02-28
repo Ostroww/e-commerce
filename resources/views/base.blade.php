@@ -73,10 +73,10 @@
                         @foreach ($lasts as $last)
                         <div class="col-sm">
                             <div class="card">
-                                <img class="card-img-top" src="{{ $last->cover }}" alt="Card image cap">
+                                <img class="card-img-top" src="{{ $last->cover }}" alt="Card image cap" width="600px" height="200px">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product">{{ $last->nom }}</a></h4>
-                                    <p class="card-text">{{ $last->description }}</p>
+                                    <h4 class="card-title"><a href="product/{{ $last->id }}.html" title="View Product">{{ $last->nom }}</a></h4>
+                                    <p class="card-text">{{ Str::of($last->description)->limit(50, '...') }}</p>
                                     <div class="row">
                                         <div class="col">
                                             <p class="btn btn-danger w-100">{{ $last->prix }} &euro;</p>

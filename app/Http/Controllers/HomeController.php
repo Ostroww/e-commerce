@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -15,17 +16,12 @@ class HomeController extends Controller
      */
     public function index(Product $products)
     {
-        $products = Product::inRandomOrder()->first();
-        $products_2 = Product::inRandomOrder()->first();
-        $products_3 = Product::inRandomOrder()->first();
-        $coeur = Product::inRandomOrder()->select('cover')->where('coeur','1')->first();
-
         return view('base', [
             'lasts' => Product::latest('created_at')->paginate(4),
-            'products' => $products, 
-            'products_2' => $products_2,
-            'products_3' => $products_3,
-            'coeur' => $coeur,
+            'products' => Product::inRandomOrder()->first(), 
+            'products_2' => Product::inRandomOrder()->first(),
+            'products_3' => Product::inRandomOrder()->first(),
+            'coeur' => Product::inRandomOrder()->select('cover')->where('coeur','1')->first(),
         ]);
 
     }

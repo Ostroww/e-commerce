@@ -15,7 +15,8 @@ class ProductController extends Controller
     public function index()
     {
         return view('products.index', [
-            'products' => Product::latest('released_at')->paginate(6),
+            'products' => Product::latest('created_at')->paginate(6),
+            'last' => Product::latest('created_at')->first(),
         ]);
     }
 

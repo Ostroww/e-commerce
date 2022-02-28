@@ -65,13 +65,13 @@
             <div class="card bg-light mb-3">
                 <div class="card-header bg-success text-white text-uppercase">Dernier produit</div>
                 <div class="card-body">
-                    <img class="img-fluid" src="https://dummyimage.com/600x400/55595c/fff" />
-                    <h5 class="card-title mt-3">Produit</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <img class="img-fluid" src="{{ $last->cover }}" />
+                    <h5 class="card-title mt-3">{{ $last->nom }}</h5>
+                    <p class="card-text">{{ $last->description }}</p>
 
                     <div class="row">
                         <div class="col">
-                            <p class="btn btn-danger w-100">99,00 &euro;</p>
+                            <p class="btn btn-danger w-100">{{ $last->prix }} &euro;</p>
                         </div>
                         <div class="col">
                             <a href="product.html" class="btn btn-success w-100">Voir</a>
@@ -88,7 +88,7 @@
                     <div class="card">
                         <img class="card-img-top" src="{{ $product->cover }}" alt="Card image cap">
                         <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product">{{ $product->nom}}]</a></h4>
+                            <h4 class="card-title"><a href="product.html" title="View Product">{{ $product->nom }}</a></h4>
                             <p class="card-text">{{ $product->description}}</p>
                             <div class="row">
                                 <div class="col">

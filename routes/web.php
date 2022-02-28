@@ -30,4 +30,3 @@ Route::get('/product/{product}.html', [ProductController::class, 'show']);
 Route::get('/contact.html', [ContactController::class, 'index']);
 
 Route::get('/category/{category}.html', [CategoryController::class, 'show']);
-

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -15,10 +16,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        
         return view('products.index', [
             'products' => Product::latest('created_at')->paginate(6),
             'last' => Product::latest('created_at')->first(),
+            'categories' => Category::all(),
         ]);
     }
 

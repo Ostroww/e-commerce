@@ -3,8 +3,8 @@
 @section('content')
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">Catégorie</h1>
-        <p class="lead text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, veniam, eius aliquam quidem rem sunt nam quaerat facilis ex error placeat ipsa illo sed inventore soluta ipsum cumque atque ea?</p>
+        <h1 class="jumbotron-heading">{{ $category->name }}</h1>
+        <p class="lead text-muted mb-0">Liste des {{ $category->name }}</p>
     </div>
 </section>
 
@@ -15,7 +15,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
                     <li class="breadcrumb-item"><a href="category.html">Catégorie</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Sous catégorie</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $category->name }}</li>
                 </ol>
             </nav>
         </div>

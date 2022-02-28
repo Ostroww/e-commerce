@@ -55,10 +55,9 @@
             <div class="card bg-light mb-3">
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Catégories</div>
                 <ul class="list-group category_block">
-                    <li class="list-group-item"><a href="category.html">Cras justo odio</a></li>
-                    <li class="list-group-item"><a href="category.html">Dapibus ac facilisis in</a></li>
-                    <li class="list-group-item"><a href="category.html">Morbi leo risus</a></li>
-                    <li class="list-group-item"><a href="category.html">Porta ac consectetur ac</a></li>
+                    @foreach ($categories as $category)
+                    <li class="list-group-item"><a href="category/{{ $category->id}} .html">{{ $category->name }}</a></li>
+                    @endforeach
                     <li class="list-group-item"><a href="category.html">Vestibulum at eros</a></li>
                 </ul>
             </div>
@@ -67,7 +66,7 @@
                 <div class="card-body">
                     <img class="img-fluid" src="{{ $last->cover }}" />
                     <h5 class="card-title mt-3">{{ $last->nom }}</h5>
-                    <p class="card-text">{{ $last->description }}</p>
+                    <p class="card-text">{{ Str::of($last->description)->limit(50, '...') }}</p>
 
                     <div class="row">
                         <div class="col">

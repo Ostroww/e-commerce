@@ -55,8 +55,8 @@
                     <p>3 rue des Champs Elysées</p>
                     <p>75008 PARIS</p>
                     <p>France</p>
-                    <p>Email : email@example.com</p>
-                    <p>Tel. +33 12 56 11 51 84</p>
+                    <p>Email : {{ config('services.footer.mail') }}</p>
+                    <p>Tel. {{ config('services.footer.tel')}}</p>
 
                 </div>
 

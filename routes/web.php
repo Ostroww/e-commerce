@@ -5,6 +5,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +32,14 @@ Route::get('/product/{product}.html', [ProductController::class, 'show']);
 Route::get('/contact.html', [ContactController::class, 'index']);
 
 Route::get('/category/{category}.html', [CategoryController::class, 'show']);
+
+
+Route::get('/admin.html', [AdminController::class, 'index']);
+
+Route::get('/admin/products.html', [AdminProductController::class, 'index']);
+
+Route::get('/admin/product/creer.html', [ProductController::class, 'create']);
+
+Route::get('/admin/product/{product}/edit.html', [ContactController::class, 'edit']);
+
+Route::get('/admin/product/{product}/delete', [CategoryController::class, 'delete']);

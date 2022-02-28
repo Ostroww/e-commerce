@@ -26,7 +26,7 @@
         <div class="col-12 col-md-3">
             <div class="card bg-light mb-3">
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Filtres</div>
-                <form action="" method="post">
+                <form action="" method="get">
                     <ul class="list-group">
                         <li class="list-group-item">
                             <div class="form-check">
@@ -51,6 +51,9 @@
                         </li>
                     </ul>
                 </form>
+                @if ($_GET == null)
+                echo 'OKKK';
+                @endif
             </div>
             <div class="card bg-light mb-3">
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Catégories</div>

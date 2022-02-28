@@ -49,9 +49,9 @@
                             <label for="colors">Couleur</label>
                             <select class="form-select" id="colors">
                                 <option selected>Choisir</option>
-                                <option value="1">Bleu</option>
-                                <option value="2">Rouge</option>
-                                <option value="3">Vert</option>
+                                @foreach ($product->couleurs as $couleur)
+                                <option value="{{ $couleur }}">{{ $couleur }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3">

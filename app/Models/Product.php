@@ -9,7 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom', 'description', 'prix', 'released_at', 'coeur', 'cover'];
+    protected $fillable = ['nom', 'description', 'prix', 'released_at', 'coeur', 'cover', 'couleurs'];
+
+    protected $casts = [
+        'couleurs' => 'array',
+    ];
 
     public function category()
     {

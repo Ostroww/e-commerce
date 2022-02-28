@@ -25,7 +25,8 @@ class ProductFactory extends Factory
             'prix' => rand(1, 500),
             'released_at' => now(),
             'coeur' => (bool) rand(0, 1),
-            'cover' => $this->faker->imageUrl()
+            'cover' => $this->faker->imageUrl(),
+            'couleurs' => ['bleu', 'rouge'],
         ];
     }
 }

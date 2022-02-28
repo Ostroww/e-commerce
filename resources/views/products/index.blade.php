@@ -4,7 +4,7 @@
 <section class="jumbotron text-center">
     <div class="container">
         <h1 class="jumbotron-heading">Produits</h1>
-        <p class="lead text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, veniam, eius aliquam quidem rem sunt nam quaerat facilis ex error placeat ipsa illo sed inventore soluta ipsum cumque atque ea?</p>
+        <p class="lead text-muted mb-0">Liste de tous les produits.</p>
     </div>
 </section>
 
@@ -73,7 +73,7 @@
                             <p class="btn btn-danger w-100">{{ $last->prix }} &euro;</p>
                         </div>
                         <div class="col">
-                            <a href="product.html" class="btn btn-success w-100">Voir</a>
+                            <a href="product/{{ $last->id }}.html" class="btn btn-success w-100">Voir</a>
                         </div>
                     </div>
                 </div>

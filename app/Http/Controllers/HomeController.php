@@ -21,7 +21,7 @@ class HomeController extends Controller
             'products' => Product::inRandomOrder()->first(), 
             'products_2' => Product::inRandomOrder()->first(),
             'products_3' => Product::inRandomOrder()->first(),
-            'coeur' => Product::inRandomOrder()->select('cover')->where('coeur','1')->first(),
+            'coeur' => Product::inRandomOrder()->where('coeur','1')->first(),
         ]);
 
     }

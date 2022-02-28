@@ -40,8 +40,10 @@
         <div class="col-12 col-lg-6 add_to_cart_block">
             <div class="card bg-light mb-3">
                 <div class="card-body">
-                    <p class="price">{{ $product->prix }} &euro;</p>
-                    <p class="price_discounted">149.90 &euro;</p>
+                    <p class="price">{{ $product->prix-($product->promo/100)*$product->prix }} &euro;</p>
+                    @if ($product->promo != null)
+                    <p class="price_discounted">{{ $product->prix }} &euro;</p>
+                    @endif
                     <form method="get" action="cart.html">
                         <div class="mb-3">
                             <label for="colors">Couleur</label>

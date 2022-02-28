@@ -4,7 +4,7 @@
 <section class="jumbotron text-center">
     <div class="container">
         <h1 class="jumbotron-heading">Commerce</h1>
-        <p class="lead text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum delectus ad quae cumque voluptates dolorum, neque eveniet, placeat obcaecati magnam vel fugit nulla autem, mollitia consequuntur praesentium sit? Veniam, facere.</p>
+        <p class="lead text-muted mb-0">Vente en ligne.</p>
     </div>
 </section>
 
@@ -45,14 +45,14 @@
                 </div>
                 <img class="img-fluid border-0" src="{{ $coeur->cover }}" alt="Card image cap">
                 <div class="card-body">
-                    <h4 class="card-title text-center"><a href="product.html" title="View Product">Produit</a></h4>
-                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    <h4 class="card-title text-center"><a href="product/{{ $coeur->id }}.html" title="View Product">{{ $coeur->nom }}</a></h4>
+                    <p class="card-text">{{ Str::of($coeur->description)->limit(50, '...') }}</p>
                     <div class="row">
                         <div class="col">
-                            <p class="btn btn-danger w-100">99,00 &euro;</p>
+                            <p class="btn btn-danger w-100">{{ $coeur->prix }} &euro;</p>
                         </div>
                         <div class="col">
-                            <a href="product.html" class="btn btn-success w-100">Voir</a>
+                            <a href="product/{{ $coeur->id }}.html" class="btn btn-success w-100">Voir</a>
                         </div>
                     </div>
                 </div>

@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'footer' => [
+        'company' => ' SHOPPY',
+        'mail' => ' shoppy@shoppy.fr',
+        'tel' => ' 06 59 85 62 36',
+        'fax' => ' 06 59 85 62 36',
+    ]
 ];

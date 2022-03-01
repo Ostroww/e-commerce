@@ -17,7 +17,11 @@ class ProductController extends Controller
     public function index()
     {
         return view('products.index', [
-            'products' => Product::latest('created_at')->paginate(6),
+            'products' => Product::when(request('color'), function ($query) {
+                foreach (request('color') as $color) {
+                    $query->orWhere('couleurs', 'LIKE', '%'.$color.'%');
+                }
+                })->paginate(6),
             'last' => Product::latest('created_at')->first(),
             'categories' => Category::all(),
         ]);

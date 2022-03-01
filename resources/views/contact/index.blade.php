@@ -2,9 +2,18 @@
 
 @section('content')
 <section class="jumbotron text-center">
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0 list-unstyled">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container">
         <h1 class="jumbotron-heading">Contact</h1>
-        <p class="lead text-muted mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus commodi laboriosam nisi possimus nesciunt veritatis a praesentium voluptatibus, sunt cumque ad fuga accusantium totam corrupti cupiditate in libero fugit! Quidem?</p>
+        <p class="lead text-muted mb-0">Formulaire de contact</p>
     </div>
 </section>
 
@@ -28,7 +37,7 @@
                 <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Contactez-nous.
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="mailto:thomas@thomas.fr" method="get">
                         <div class="mb-3">
                             <label for="name">Nom</label>
                             <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Votre nom">

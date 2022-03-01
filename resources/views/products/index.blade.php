@@ -51,9 +51,6 @@
                         </li>
                     </ul>
                 </form>
-                @if ($_GET == null)
-                echo 'OKKK';
-                @endif
             </div>
             <div class="card bg-light mb-3">
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Catégories</div>

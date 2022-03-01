@@ -25,7 +25,7 @@ class ProductFactory extends Factory
             'prix' => rand(1, 500),
             'coeur' => (bool) rand(0, 1),
             'cover' => $this->faker->imageUrl(),
-            'couleurs' => ['bleu', 'rouge'],
+            'couleurs' => $this->faker->randomElements(['bleu', 'rouge', 'vert'], $count = rand(1, 3)),
             'category_id' => 1,
             'slug' => Str::slug(str::random(), '-'),
         ];

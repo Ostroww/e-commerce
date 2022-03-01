@@ -67,6 +67,7 @@
                         </ul>
                     </div>
                 </nav>
+                <div class="container py-5 my-5">
                 @yield('content')
                 </div>
         </div>

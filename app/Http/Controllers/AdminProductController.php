@@ -70,4 +70,18 @@ class AdminProductController extends Controller
 
         return redirect('/admin/products.html')->with('status', 'Le produit '.$product->nom.' a été modifiée.');
     }
+
+    public function delete(Product $product)
+    {
+        return view('admin.delete', [
+            'product' => $product,
+        ]);
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect('/admin/products.html')->with('status', 'Le produit '.$product->nom.' a été supprimé.');
+    }
 }

@@ -29,7 +29,7 @@
                                     <td>{{ $product->prix }} €</td>
                                     <td>
                                         <a class="btn btn-primary" href="/admin/product/{{ $product->id }}/edit.html">Modifier</a>
-                                        <a class="btn btn-danger">Supprimer</a>
+                                        <a class="btn btn-danger" href="/admin/product/{{ $product->id }}/delete.html">Supprimer</a>
                                     </td>
                                 </tr>
                                 @endforeach

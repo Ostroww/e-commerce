@@ -46,4 +46,6 @@ Route::get('/admin/product/{product}/edit.html', [AdminProductController::class,
 
 Route::put('/admin/product/{product}.html', [AdminProductController::class, 'update']);
 
-Route::get('/admin/product/{product}/delete', [CategoryController::class, 'delete']);
+Route::get('/admin/product/{product}/delete.html', [AdminProductController::class, 'delete']);
+
+Route::delete('/admin/product/{product}.html', [AdminProductController::class, 'destroy']);

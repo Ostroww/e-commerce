@@ -28,7 +28,7 @@
                                     <td>{{ $product->nom }}</td>
                                     <td>{{ $product->prix }} €</td>
                                     <td>
-                                        <a class="btn btn-primary">Modifier</a>
+                                        <a class="btn btn-primary" href="/admin/product/{{ $product->id }}/edit.html">Modifier</a>
                                         <a class="btn btn-danger">Supprimer</a>
                                     </td>
                                 </tr>

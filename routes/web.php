@@ -42,6 +42,8 @@ Route::get('/admin/product/creer.html', [AdminProductController::class, 'create'
 
 Route::post('/admin/product/creer.html', [AdminProductController::class, 'store']);
 
-Route::get('/admin/product/{product}/edit.html', [ContactController::class, 'edit']);
+Route::get('/admin/product/{product}/edit.html', [AdminProductController::class, 'edit']);
+
+Route::put('/admin/product/{product}.html', [AdminProductController::class, 'update']);
 
 Route::get('/admin/product/{product}/delete', [CategoryController::class, 'delete']);

@@ -48,4 +48,26 @@ class AdminProductController extends Controller
         ]);
         return redirect('/admin.html')->with('status', 'Le produit '.$product->nom.' a été crée.');
     }
+
+    public function edit(Product $product)
+    {
+        return view('admin.edit', [
+            'product' => $product,
+        ]);
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        // Vérifier les erreurs
+        request()->validate([
+            'name' => 'required|min:3',
+        ]);
+
+        // On modifie la catégorie dans la BDD
+        $product->update([
+            'nom' => request('name'),
+        ]);
+
+        return redirect('/admin/products.html')->with('status', 'Le produit '.$product->nom.' a été modifiée.');
+    }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,7 @@ use App\Http\Controllers\AdminProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('base');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/index.html', [HomeController::class, 'index']);
 
@@ -49,3 +48,7 @@ Route::put('/admin/product/{product}.html', [AdminProductController::class, 'upd
 Route::get('/admin/product/{product}/delete.html', [AdminProductController::class, 'delete']);
 
 Route::delete('/admin/product/{product}.html', [AdminProductController::class, 'destroy']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

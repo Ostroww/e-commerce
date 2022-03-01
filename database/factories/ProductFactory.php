@@ -27,6 +27,7 @@ class ProductFactory extends Factory
             'cover' => $this->faker->imageUrl(),
             'couleurs' => ['bleu', 'rouge'],
             'category_id' => 1,
+            'slug' => Str::slug(str::random(), '-'),
         ];
     }
 }

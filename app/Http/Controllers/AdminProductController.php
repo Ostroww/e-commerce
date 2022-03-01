@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminProductController extends Controller
 {
@@ -45,6 +46,7 @@ class AdminProductController extends Controller
             'cover' => '/storage/'.request('cover')->store('covers', 'public'),
             'promo' => request('promo'),
             'category_id' => request('category'),
+            'slug' => Str::slug(request('name'), '-'),
         ]);
         return redirect('/admin.html')->with('status', 'Le produit '.$product->nom.' a été crée.');
     }
@@ -83,5 +85,5 @@ class AdminProductController extends Controller
         $product->delete();
 
         return redirect('/admin/products.html')->with('status', 'Le produit '.$product->nom.' a été supprimé.');
-    }
+    }    
 }

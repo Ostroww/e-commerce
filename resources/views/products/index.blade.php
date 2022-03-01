@@ -61,7 +61,6 @@
                     @foreach ($categories as $category)
                     <li class="list-group-item"><a href="category/{{ $category->id}} .html">{{ $category->name }}</a></li>
                     @endforeach
-                    <li class="list-group-item"><a href="category.html">Vestibulum at eros</a></li>
                 </ul>
             </div>
             <div class="card bg-light mb-3">
@@ -90,7 +89,7 @@
                     <div class="card">
                         <img class="card-img-top" src="{{ $product->cover }}" alt="Card image cap" width="600px" height="200px">
                         <div class="card-body">
-                            <h4 class="card-title"><a href="product/{{ $product->id }}.html" title="View Product">{{ $product->nom }}</a></h4>
+                            <h4 class="card-title"><a href="product/{{ $product->id }}-{{ $product->slug }}.html" title="View Product">{{ $product->nom }}</a></h4>
                             <p class="card-text">{{ Str::of($product->description)->limit(50, '...') }}</p>
                             <div class="row">
                                 <div class="col">

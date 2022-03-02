@@ -61,13 +61,7 @@ class ProductController extends Controller
 
         $moyenne = 0;
 
-        $collection = Product::all();
-
         $nb = 0;
-
-        $sorted = $collection->sortByDesc('moyenne');
-
-        $sorted->all();
 
         foreach ($product->reviews as $review) {
             $total += $review->note;
@@ -78,6 +72,8 @@ class ProductController extends Controller
             $moyenne = $total/$nb;
         }
         $product->moyenne = $moyenne;
+
+        $product->save();
     
 
         return view('products.show', [

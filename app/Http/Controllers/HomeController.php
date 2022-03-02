@@ -25,6 +25,7 @@ class HomeController extends Controller
             'products_2' => Product::inRandomOrder()->first(),
             'products_3' => Product::inRandomOrder()->first(),
             'coeur' => Product::inRandomOrder()->where('coeur','1')->first(),
+            'sorted' => Product::all()->sortByDesc('moyenne')->take(4),
         ]);
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,3 +56,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/products/{product}.html', [ReviewController::class, 'store']);
+
+Route::get('/cart.html', [CartController::class, 'index']);

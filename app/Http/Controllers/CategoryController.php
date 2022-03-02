@@ -12,6 +12,7 @@ class CategoryController extends Controller
     {
         return view('categories.show', [
             'category' => $category,
+            'categories' => Category::all(),
             'last' => Product::latest('created_at')->first(),
         ]);
     }

@@ -2,6 +2,15 @@
 
 @section('content')
 <section class="jumbotron text-center">
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0 list-unstyled">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container">
         <h1 class="jumbotron-heading">{{ $product->nom }}</h1>
         <p class="lead text-muted mb-0">{{ $product->description }}</p>
@@ -22,13 +31,32 @@
     </div>
 </div>
 
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel">Produit</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img class="img-fluid" src="https://dummyimage.com/1200x1200/55595c/fff" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <!-- Image -->
         <div class="col-12 col-lg-6">
             <div class="card bg-light mb-3">
                 <div class="card-body">
-                    <a href="" data-toggle="modal" data-target="#productModal">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#productModal">
                         <img class="img-fluid" src="{{ $product->cover }}" />
                         <p class="text-center">Zoom</p>
                     </a>
@@ -115,38 +143,23 @@
             <div class="card border-light mb-3">
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-comment"></i> Avis</div>
                 <div class="card-body">
+                @foreach ($product->reviews as $review)
                     <div class="review">
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        <meta itemprop="datePublished" content="01-01-2016">28 mars 2019
-
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        par Paul Smith
+                        <meta itemprop="datePublished" content="01-01-2016">{{ $review->created_at }}
+                        @for ($i = 0; $i < $review->note; $i++)
+                            <span class="fa fa-star"></span>
+                        @endfor
+                        par {{ $review->name }}
                         <p class="blockquote">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <p class="mb-0">{{ $review->message }}</p>
                         </p>
                         <hr>
                     </div>
-                    <div class="review">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        <meta itemprop="datePublished" content="01-01-2016">29 mars 2019
+                    @endforeach
 
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        par Paul Smith
-                        <p class="blockquote">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        </p>
-                        <hr>
-                    </div>
-
-                    <form action="" method="post">
+                    <form action="/products/{{ $product->id }}.html" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="name">Nom</label>
                             <input type="text" name="name" class="form-control" id="name">

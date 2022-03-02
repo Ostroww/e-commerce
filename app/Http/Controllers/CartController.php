@@ -19,12 +19,15 @@ class CartController extends Controller
             'colors' => 'required',
         ]);
 
+        
         $cart = session('cart', []);
-
+        
         $total = session('total');
 
+        $number = session('number');
+        
         $total = 0;
-
+        
         $cart[$product->id] = array(
             "id" => $product->id,
             "name" => $product->nom,

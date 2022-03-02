@@ -55,7 +55,7 @@
                 </div>
                 <a class="btn btn-success btn-sm ms-3 d-inline-flex align-items-center" href="cart.html">
                     <i class="fa fa-shopping-cart me-2"></i> Panier
-                    <span class="badge badge-light">3</span>
+                    <span class="badge badge-light">{{ count(session('cart')) }}</span>
                 </a>
             </form>
 

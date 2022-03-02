@@ -72,7 +72,7 @@
                             <p class="btn btn-danger w-100">{{ $last->prix }} &euro;</p>
                         </div>
                         <div class="col">
-                            <a href="product/{{ $last->id }}.html" class="btn btn-success w-100">Voir</a>
+                            <a href="product/{{ $last->id }}-{{ $last->slug }}.html" class="btn btn-success w-100">Voir</a>
                         </div>
                     </div>
                 </div>

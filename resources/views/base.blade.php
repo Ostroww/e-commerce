@@ -45,7 +45,7 @@
                 </div>
                 <img class="img-fluid border-0" src="{{ $coeur->cover }}" alt="Card image cap">
                 <div class="card-body">
-                    <h4 class="card-title text-center"><a href="product/{{ $coeur->id }}.html" title="View Product">{{ $coeur->nom }}</a></h4>
+                    <h4 class="card-title text-center"><a href="product/{{ $coeur->id }}-{{ $coeur->slug }}.html" title="View Product">{{ $coeur->nom }}</a></h4>
                     <p class="card-text">{{ Str::of($coeur->description)->limit(50, '...') }}</p>
                     <div class="row">
                         <div class="col">
@@ -75,7 +75,7 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ $last->cover }}" alt="Card image cap" width="600px" height="200px">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product/{{ $last->id }}.html" title="View Product">{{ $last->nom }}</a></h4>
+                                    <h4 class="card-title"><a href="product/{{ $last->id }}-{{ $last->slug }}.html" title="View Product">{{ $last->nom }}</a></h4>
                                     <p class="card-text">{{ Str::of($last->description)->limit(50, '...') }}</p>
                                     <div class="row">
                                         <div class="col">
@@ -110,7 +110,7 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ $sort->cover }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product/{{ $sort->id }}.html" title="View Product">{{ $sort->nom }}</a></h4>
+                                    <h4 class="card-title"><a href="product/{{ $sort->id }}-{{ $sort->slug }}.html" title="View Product">{{ $sort->nom }}</a></h4>
                                     <p class="card-text">{{ $sort->description }}</p>
                                     <div class="row">
                                         <div class="col">

@@ -25,17 +25,15 @@ class CartController extends Controller
 
         $total = 0;
 
-        $cart[] = array(
+        $cart[$product->id] = array(
+            "id" => $product->id,
             "name" => $product->nom,
             "price" => $product->prix,
             "quantity" => request('quantity'),
             "colors" => request('colors'),
         );
-        if ($cart[0] != null) {
-
-            foreach ($cart as $prod) {
-                $total += $prod['price'];
-            }
+        foreach ($cart as $prod) {
+            $total += $prod['price'];
         }
 
         session([
@@ -46,16 +44,18 @@ class CartController extends Controller
         return redirect('/cart.html')->with('status', 'Le produit '.$product->nom.' a été ajouté.');
     }
 
-    public function delete(Product $product)
-    {
-        return view('cart.delete', [
-            'product' => $product,
-        ]);
-    }
-
     public function destroy(Product $product)
     {
-        session('cart'['prod'][$product->nom])->delete();
+        $total = 0;
+        $cart = session('cart', []);
+        unset($cart[$product->id]);
+        foreach ($cart as $prod) {
+            $total += $prod['price'];
+        }
+        session([
+            'cart' => $cart,
+            'total' => $total,
+        ]);
 
         return redirect('/cart.html')->with('status', 'Le produit '.$product->nom.' a été supprimé.');
     }    

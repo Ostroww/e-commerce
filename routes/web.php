@@ -61,6 +61,4 @@ Route::get('/cart.html', [CartController::class, 'index']);
 
 Route::post('/cart/{product}.html', [CartController::class, 'store']);
 
-Route::get('/cart/delete.html', [CartController::class, 'delete']);
-
 Route::delete('/cart/{product}.html', [CartController::class, 'destroy']);

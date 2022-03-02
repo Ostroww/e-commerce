@@ -30,7 +30,12 @@
                                 <td>En stock</td>
                                 <td><input class="form-control" type="text" value="1" /></td>
                                 <td class="text-right">{{ $prod['price'] }}</td>
-                                <td class="text-right"><a href="#"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button></a> </td>
+                                <td class="text-right">
+                                    <form class="d-inline" action="/cart/{{ $prod['id'] }}.html" method="post">
+                                        @csrf @method('delete')
+                                        <button class="btn btn-danger" onclick="return confirm('Voulez-vous supprimer le produit ?')">Supprimer</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         <tr>

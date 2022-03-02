@@ -110,13 +110,11 @@
                         </ul>
                     </div>
                     <div class="reviews_product p-3 mb-2 ">
-                        3 avis
+                        {{ $nb }} avis
+                        @for ($i = 0; $i < round($product->moyenne); $i++)
                         <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        (4/5)
+                        @endfor
+                        ({{ $product->moyenne }}/5)
                         <a class="pull-right" href="#reviews">Voir tous les avis</a>
                     </div>
                     <div class="datasheet p-3 mb-2 bg-info text-white">

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('cover')->nullable();
             $table->integer('promo')->nullable();
             $table->integer('category_id');
+            $table->decimal('moyenne')->nullable();
             $table->timestamps();
         });
     }

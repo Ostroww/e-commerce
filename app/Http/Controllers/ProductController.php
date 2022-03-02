@@ -57,9 +57,33 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $total = 0;
+
+        $moyenne = 0;
+
+        $collection = Product::all();
+
+        $nb = 0;
+
+        $sorted = $collection->sortByDesc('moyenne');
+
+        $sorted->all();
+
+        foreach ($product->reviews as $review) {
+            $total += $review->note;
+            $nb++;
+        }
+
+        if ($nb != 0) {
+            $moyenne = $total/$nb;
+        }
+        $product->moyenne = $moyenne;
+    
+
         return view('products.show', [
             'product' => $product,
             'reviews' => Review::all(),
+            'nb' => $nb,
         ]);
     }
 

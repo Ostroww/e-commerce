@@ -23,37 +23,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (session('cart') as $prod)
                         <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Dada</td>
-                            <td>En stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">124,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Toto</td>
-                            <td>En stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">33,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Titi</td>
-                            <td>En stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">70,00 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
+                                <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                                <td>{{ $prod['name'] }}</td>
+                                <td>En stock</td>
+                                <td><input class="form-control" type="text" value="1" /></td>
+                                <td class="text-right">{{ $prod['price'] }}</td>
+                                <td class="text-right"><a href="#"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button></a> </td>
+                            </tr>
+                        @endforeach
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>Sous-Total</td>
-                            <td class="text-right">255,90 €</td>
+                            <td class="text-right">{{ session('total') }} €</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -69,7 +55,7 @@
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>346,90 €</strong></td>
+                            <td class="text-right"><strong>{{ session('total')+6.90 }} €</strong></td>
                         </tr>
                     </tbody>
                 </table>

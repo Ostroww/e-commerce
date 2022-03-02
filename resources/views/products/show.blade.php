@@ -72,10 +72,11 @@
                     @if ($product->promo != null)
                     <p class="price_discounted">{{ $product->prix }} &euro;</p>
                     @endif
-                    <form method="get" action="cart.html">
+                    <form method="post" action="/cart/{{ $product->id }}.html">
+                        @csrf
                         <div class="mb-3">
                             <label for="colors">Couleur</label>
-                            <select class="form-select" id="colors">
+                            <select class="form-select" id="colors" name="colors">
                                 <option selected>Choisir</option>
                                 @foreach ($product->couleurs as $couleur)
                                 <option value="{{ $couleur }}">{{ $couleur }}</option>
@@ -98,9 +99,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="cart.html" class="btn btn-success btn-lg w-100 text-uppercase">
+                        <button class="btn btn-success btn-lg w-100 text-uppercase">
                             <i class="fa fa-shopping-cart"></i> Ajouter
-                        </a>
+                        </button>
                     </form>
                     <div class="product_rassurance">
                         <ul class="list-inline">
